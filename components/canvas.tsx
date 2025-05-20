@@ -2,7 +2,15 @@
 
 import React from 'react';
 
+/**
+ * Canvas component renders a canvas and a percentage display.
+ * It dynamically loads the canvas_handler.js script on mount and cleans up on unmount.
+ */
 export default function Canvas() {
+  /**
+   * useEffect loads the external canvas handler script when the component mounts,
+   * and removes it when the component unmounts.
+   */
   React.useEffect(() => {
     // Dynamically load the script
     const script = document.createElement('script');

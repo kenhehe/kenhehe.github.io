@@ -75,11 +75,13 @@ class CanvasApp {
     }
 
     /**
-     * Adds event listeners for window resize and mouse movement on the canvas.
+     * Adds event listeners for window resize, mouse movement, and touch movement on the canvas.
      */
     addEventListeners() {
       window.addEventListener("resize", () => this.handleResize());
       this.canvas.addEventListener("mousemove", (e) => this.handleMouseMove(e));
+      // Add touch event listener for mobile support
+      this.canvas.addEventListener("touchmove", (e) => this.handleTouchMove(e));
     }
 
     /**
@@ -211,6 +213,35 @@ class CanvasApp {
         this.ctx.drawImage(snapshotImage, 0, 0, this.canvas.width, this.canvas.height);
         this.ctx.globalAlpha = 1;
       }, 50);
+    }
+
+    /**
+     * Handles touch movement over the canvas to erase at the touch position.
+     * @param {TouchEvent} e
+     */
+    handleTouchMove(e) {
+      if (this.isFading) return;
+      // Prevent scrolling while touching the canvas
+      e.preventDefault();
+      if (e.touches && e.touches.length > 0) {
+        const touch = e.touches[0];
+        const { x, y } = this.getTouchPosition(touch);
+        this.eraseAt(x, y);
+        this.updateErasedPercentage();
+      }
+    }
+
+    /**
+     * Gets the touch position relative to the canvas.
+     * @param {Touch} touch
+     * @returns {{x: number, y: number}}
+     */
+    getTouchPosition(touch) {
+      const rect = this.canvas.getBoundingClientRect();
+      return {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top,
+      };
     }
   }
 

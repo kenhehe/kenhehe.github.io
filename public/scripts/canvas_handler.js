@@ -126,12 +126,17 @@ class CanvasApp {
 
     /**
      * Erases a circular area at the specified (x, y) position on the canvas.
+     * The eraser width adapts to screen size: max 300px on desktop, 150px on mobile.
      * @param {number} x
      * @param {number} y
      */
     eraseAt(x, y) {
+      // Determine eraser width based on device
+      const isMobile = window.innerWidth <= 600;
+      const eraserWidth = isMobile ? 150 : 300;
+
       this.ctx.globalCompositeOperation = "destination-out";
-      this.ctx.lineWidth = 300;
+      this.ctx.lineWidth = eraserWidth;
       this.ctx.lineCap = "round";
       this.ctx.lineJoin = "round";
       this.ctx.lineTo(x, y);

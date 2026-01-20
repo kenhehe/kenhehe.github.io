@@ -1,0 +1,4 @@
+# ASSETS/CSS
+# Global stylesheets, fonts, images that need processing
+# Files here are processed by Vite
+# Example: main.css, variables.css

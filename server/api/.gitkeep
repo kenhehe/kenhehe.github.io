@@ -1,0 +1,4 @@
+# SERVER/API
+# Backend API routes (serverless functions)
+# hello.ts = API endpoint at /api/hello
+# Full-stack capabilities built-in

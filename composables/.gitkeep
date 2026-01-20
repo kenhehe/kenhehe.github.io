@@ -1,0 +1,5 @@
+# COMPOSABLES
+# Reusable Vue composition functions (like React hooks)
+# Auto-imported globally
+# Example: useAuth.ts, useFetch.ts
+# Must start with "use" prefix

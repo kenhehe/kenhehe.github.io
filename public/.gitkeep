@@ -1,0 +1,5 @@
+# PUBLIC
+# Static files served as-is (not processed)
+# Accessible from root URL
+# Example: favicon.ico, robots.txt, images
+# File at public/logo.png = available at /logo.png

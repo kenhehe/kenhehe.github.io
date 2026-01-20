@@ -1,0 +1,4 @@
+# MIDDLEWARE
+# Route middleware for authentication, redirects, etc.
+# Runs before rendering a page
+# Example: auth.ts, guest.ts

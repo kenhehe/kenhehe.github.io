@@ -1,0 +1,4 @@
+# PLUGINS
+# Vue plugins and third-party integrations
+# Auto-loaded on app initialization
+# Example: vue-toast.ts, analytics.ts
